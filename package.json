@@ -1,0 +1,23 @@
+{
+  "name": "ai-masterclass",
+  "version": "1.0.0",
+  "description": "Mobile-optimized, super noob-friendly AI masterclass with vibrant UI",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "ai",
+    "machine-learning",
+    "education",
+    "masterclass",
+    "mobile"
+  ],
+  "author": "AI Masterclass Team",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

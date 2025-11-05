@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Learn AI from scratch with our mobile-optimized, beginner-friendly masterclass">
+    <meta name="theme-color" content="#6366f1">
+    <title>AI Masterclass - Learn AI the Fun Way! 🚀</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-gradient"></div>
+        <div class="container">
+            <div class="hero-badge">
+                <span class="badge-icon">🎓</span>
+                <span>Your AI Journey Starts Here</span>
+            </div>
+            <h1 class="hero-title">
+                Master <span class="gradient-text">Artificial Intelligence</span>
+            </h1>
+            <p class="hero-subtitle">
+                Learn AI from zero to hero with fun, interactive lessons designed for absolute beginners
+            </p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Modules</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Lessons</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Free</div>
+                </div>
+            </div>
+            <button class="cta-button" onclick="scrollToModules()">
+                Start Learning
+                <span class="button-icon">→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Course Modules -->
+    <section class="modules-section" id="modules">
+        <div class="container">
+            <h2 class="section-title">Your Learning Path</h2>
+            <p class="section-subtitle">5 exciting modules to transform you into an AI expert</p>
+
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card" data-module="1" onclick="openModule(1)">
+                    <div class="module-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        🧠
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-number">Module 1</span>
+                            <span class="module-duration">15 min</span>
+                        </div>
+                        <h3 class="module-title">AI Basics</h3>
+                        <p class="module-description">What is AI and why should you care? Start your journey here!</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">What is AI?</span>
+                            <span class="topic-tag">AI vs Humans</span>
+                            <span class="topic-tag">Types of AI</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text">Not started</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card" data-module="2" onclick="openModule(2)">
+                    <div class="module-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        🎯
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-number">Module 2</span>
+                            <span class="module-duration">20 min</span>
+                        </div>
+                        <h3 class="module-title">Machine Learning 101</h3>
+                        <p class="module-description">Teach computers to learn without explicit programming</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">What is ML?</span>
+                            <span class="topic-tag">Training Data</span>
+                            <span class="topic-tag">Predictions</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text">Not started</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card" data-module="3" onclick="openModule(3)">
+                    <div class="module-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        🕸️
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-number">Module 3</span>
+                            <span class="module-duration">25 min</span>
+                        </div>
+                        <h3 class="module-title">Neural Networks</h3>
+                        <p class="module-description">Discover how AI mimics the human brain</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">How Brains Work</span>
+                            <span class="topic-tag">Neurons</span>
+                            <span class="topic-tag">Deep Learning</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text">Not started</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card" data-module="4" onclick="openModule(4)">
+                    <div class="module-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        🌍
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-number">Module 4</span>
+                            <span class="module-duration">20 min</span>
+                        </div>
+                        <h3 class="module-title">Real-World AI</h3>
+                        <p class="module-description">See AI in action in everyday life</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Voice Assistants</span>
+                            <span class="topic-tag">Recommendations</span>
+                            <span class="topic-tag">Self-Driving</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text">Not started</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card" data-module="5" onclick="openModule(5)">
+                    <div class="module-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        🚀
+                    </div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-number">Module 5</span>
+                            <span class="module-duration">15 min</span>
+                        </div>
+                        <h3 class="module-title">Your AI Future</h3>
+                        <p class="module-description">Start using AI tools today and shape your future</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">AI Tools</span>
+                            <span class="topic-tag">Ethics</span>
+                            <span class="topic-tag">Next Steps</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text">Not started</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lesson Modal -->
+    <div class="modal" id="lessonModal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="lessonContent"></div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="modal" id="quizModal">
+        <div class="modal-overlay" onclick="closeQuizModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeQuizModal()">✕</button>
+            <div id="quizContent"></div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" onclick="navigateTo('home')">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('modules')">
+            <span class="nav-icon">📚</span>
+            <span class="nav-label">Modules</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('progress')">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">Progress</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('profile')">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Profile</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
