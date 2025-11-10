@@ -1,0 +1,83 @@
+═══════════════════════════════════════════════════════════════
+  PUSH YOUR AI MASTERCLASS TO LOVABLE - MANUAL INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+Since the Lovable repository needs your GitHub credentials,
+you'll need to run these commands on your LOCAL machine
+(where you have GitHub access set up).
+
+───────────────────────────────────────────────────────────────
+OPTION 1: Run the Script (Easiest)
+───────────────────────────────────────────────────────────────
+
+1. Make the script executable:
+   chmod +x push-to-lovable.sh
+
+2. Run it:
+   ./push-to-lovable.sh
+
+───────────────────────────────────────────────────────────────
+OPTION 2: Run Commands Manually
+───────────────────────────────────────────────────────────────
+
+1. Navigate to your project folder:
+   cd /path/to/AI-Masterclass
+
+2. Add Lovable as a remote:
+   git remote add lovable https://github.com/kodi-kompyuta/AI_Masterclass-mhpdwgmjivxblluiodra.git
+
+3. Push your code to Lovable:
+   git push lovable claude/export-code-help-011CUtFFCYTCLgVzvhSaDrG8:main --force
+
+───────────────────────────────────────────────────────────────
+WHAT THIS DOES:
+───────────────────────────────────────────────────────────────
+
+This pushes ALL your AI Masterclass files (HTML, CSS, JS, etc.)
+to the Lovable repository, replacing the starter code Lovable
+created.
+
+Files being pushed:
+  ✓ index.html          - Main application
+  ✓ styles.css          - All styling
+  ✓ script.js           - Interactive functionality
+  ✓ package.json        - Dependencies
+  ✓ vite.config.js      - Build configuration
+  ✓ All documentation   - README, guides, etc.
+
+───────────────────────────────────────────────────────────────
+AFTER PUSHING:
+───────────────────────────────────────────────────────────────
+
+1. Go to lovable.dev
+2. Open your "AI Masterclass" project
+3. Refresh the page
+4. Your complete AI Masterclass should now appear!
+5. Lovable will auto-detect Vite and set everything up
+
+───────────────────────────────────────────────────────────────
+TROUBLESHOOTING:
+───────────────────────────────────────────────────────────────
+
+❌ "Authentication failed"
+   → Make sure you're logged into GitHub on your machine
+   → Try: gh auth login (if you have GitHub CLI)
+   → Or set up a Personal Access Token
+
+❌ "Repository not found"
+   → Double-check the repository name in Lovable
+   → Make sure it's: AI_Masterclass-mhpdwgmjivxblluiodra
+
+❌ "Files not showing in Lovable"
+   → Refresh the Lovable page
+   → Check Settings → GitHub → Branch selector
+   → Make sure it's set to "main" branch
+
+───────────────────────────────────────────────────────────────
+NEED HELP?
+───────────────────────────────────────────────────────────────
+
+Just let me know what error you're getting and I'll help
+troubleshoot!
+
+═══════════════════════════════════════════════════════════════
