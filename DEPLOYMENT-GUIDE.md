@@ -16,7 +16,9 @@
 2. Click "Import"
 3. Vercel will auto-detect the configuration
 
-**Step 4: Configure (Optional)**
+**Step 4: Configure Project Name (IMPORTANT)**
+- **Project Name**: Change to `resume-optimizer`
+  - This gives you the URL: `https://resume-optimizer.vercel.app`
 - **Framework Preset**: Select "Other"
 - **Root Directory**: Leave as `.` (default)
 - **Build Command**: Leave empty
@@ -25,7 +27,7 @@
 **Step 5: Deploy!**
 1. Click "Deploy"
 2. Wait 30-60 seconds
-3. Get your live URL: `https://your-project.vercel.app`
+3. Your site is live at: `https://resume-optimizer.vercel.app` 🎉
 
 ---
 
@@ -43,19 +45,23 @@ vercel --prod
 
 Follow the prompts:
 - Login with GitHub
-- Link to existing project or create new
+- **Set up and deploy**: Choose "Y"
+- **Which scope**: Select your account
+- **Link to existing project**: Choose "N" (create new)
+- **What's your project's name**: Enter `resume-optimizer`
+- **In which directory is your code located**: Press Enter (current directory)
 - Confirm deployment
 
-**Result:** Get instant public URL!
+**Result:** Live at `https://resume-optimizer.vercel.app` 🎉
 
 ---
 
 ## What Gets Deployed
 
 Your landing page will be accessible at:
-- **Main URL**: `https://your-project.vercel.app`
-- **Landing Page**: `https://your-project.vercel.app/landing`
-- **Also accessible**: `https://your-project.vercel.app/landing.html`
+- **Main URL**: `https://resume-optimizer.vercel.app`
+- **Landing Page**: `https://resume-optimizer.vercel.app/landing`
+- **Also accessible**: `https://resume-optimizer.vercel.app/landing.html`
 
 ---
 
