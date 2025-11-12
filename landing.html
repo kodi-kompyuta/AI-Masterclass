@@ -841,30 +841,78 @@
         </div>
     </footer>
 
+    <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script>
-        // Email form handling
-        document.getElementById('emailForm').addEventListener('submit', function(e) {
+        // IMPORTANT: Replace these with your actual Supabase credentials
+        // Get them from: https://supabase.com/dashboard/project/_/settings/api
+        const SUPABASE_URL = 'YOUR_SUPABASE_URL'; // e.g., https://xxxxx.supabase.co
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // Your anon/public key
+
+        // Initialize Supabase client
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Email form handling with Supabase
+        document.getElementById('emailForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = document.getElementById('emailInput').value;
+            const submitButton = this.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
 
-            // Store email (you can integrate with your backend/email service later)
-            console.log('Email submitted:', email);
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Joining...';
 
-            // Show success message
-            document.getElementById('successMessage').classList.add('show');
-            document.getElementById('emailInput').value = '';
+            try {
+                // Save email to Supabase
+                const { data, error } = await supabase
+                    .from('waitlist')
+                    .insert([
+                        {
+                            email: email,
+                            referral_source: document.referrer || 'direct',
+                            ip_address: null // We don't track IPs from client-side
+                        }
+                    ]);
 
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 5000);
+                if (error) {
+                    // Check if email already exists
+                    if (error.code === '23505') {
+                        successMessage.textContent = '✅ You\'re already on the waitlist!';
+                        successMessage.style.background = '#f59e0b';
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    // Success!
+                    successMessage.textContent = '🎉 Success! Check your email for your early access discount code.';
+                    successMessage.style.background = '#10b981';
+                }
 
-            // Optional: Send to your backend
-            // fetch('/api/waitlist', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email })
-            // });
+                // Show success message
+                successMessage.classList.add('show');
+                document.getElementById('emailInput').value = '';
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+
+            } catch (error) {
+                console.error('Error saving email:', error);
+                successMessage.textContent = '❌ Oops! Something went wrong. Please try again.';
+                successMessage.style.background = '#ef4444';
+                successMessage.classList.add('show');
+
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Join Waitlist';
+            }
         });
 
         // Smooth scrolling for anchor links
