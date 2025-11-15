@@ -1,0 +1,59 @@
+import { redirect } from 'next/navigation'
+import { createClient } from '@/lib/supabase/server'
+import { logout } from '@/lib/actions/auth'
+
+export default async function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
+    redirect('/login')
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      {/* Navigation Header */}
+      <nav className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Resume Optimizer
+              </h1>
+            </div>
+
+            {/* User Menu */}
+            <div className="flex items-center gap-4">
+              <div className="text-sm text-gray-700">
+                {user.email}
+              </div>
+              <form action={logout}>
+                <button
+                  type="submit"
+                  className="text-sm text-gray-600 hover:text-gray-900 font-medium"
+                >
+                  Logout
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {children}
+      </main>
+
+      {/* Footer */}
+      <footer className="mt-12 pb-8 text-center text-sm text-gray-500">
+        <p>&copy; 2025 Resume Optimizer. All rights reserved.</p>
+      </footer>
+    </div>
+  )
+}
