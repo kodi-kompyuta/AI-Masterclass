@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { logout } from '@/lib/actions/auth'
+import Link from 'next/link'
 
 export default async function DashboardLayout({
   children,
@@ -20,11 +21,34 @@ export default async function DashboardLayout({
       <nav className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Resume Optimizer
-              </h1>
+            {/* Logo & Nav Links */}
+            <div className="flex items-center gap-8">
+              <Link href="/dashboard">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer">
+                  Resume Optimizer
+                </h1>
+              </Link>
+
+              <div className="hidden md:flex items-center gap-6">
+                <Link
+                  href="/dashboard"
+                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="/jobs"
+                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  Job Matching
+                </Link>
+                <Link
+                  href="/upload"
+                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  Upload Resume
+                </Link>
+              </div>
             </div>
 
             {/* User Menu */}
