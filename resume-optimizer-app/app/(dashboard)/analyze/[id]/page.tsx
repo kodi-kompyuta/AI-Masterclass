@@ -3,7 +3,8 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import type { AnalysisData } from '@/types'
 
-export default async function AnalyzePage({ params }: { params: { id: string } }) {
+export default async function AnalyzePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
@@ -15,7 +16,7 @@ export default async function AnalyzePage({ params }: { params: { id: string } }
   const { data: resume, error } = await supabase
     .from('resumes')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .eq('user_id', user.id)
     .single()
 
